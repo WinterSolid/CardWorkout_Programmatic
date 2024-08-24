@@ -12,12 +12,14 @@ class CardSelectionVC: UIViewController {
     let stopButton = CWButton(backgroundColor: .systemRed, labelTitle: "Stop")
     let resetButton = CWButton(backgroundColor: .systemGreen, labelTitle: "Reset")
     let rulesButton = CWButton(backgroundColor: .systemOrange, labelTitle: "Rules")
-    
+    var cards = CardDeck.gameImageValues
+    var timer: Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureUI()
+        startTimer()
     }
     
     func configureUI(){
@@ -42,6 +44,7 @@ class CardSelectionVC: UIViewController {
             cardImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -75)
         ]) //equiv to using using constaints tool
     }
+    
     func configureStopButton() {
         view.addSubview(stopButton)
         
@@ -50,7 +53,6 @@ class CardSelectionVC: UIViewController {
             stopButton.heightAnchor.constraint(equalToConstant: 50),
             stopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stopButton.topAnchor.constraint(equalTo: cardImageView.bottomAnchor,constant: 30),
-            
         ])
     }
     
@@ -79,7 +81,16 @@ class CardSelectionVC: UIViewController {
             
         ])
     }
+    
     @objc func presentRulesVC(){
         present(RulesVC(), animated: true)
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(showRandomCard), userInfo: nil, repeats: true)
+    }
+    
+    @objc func showRandomCard() {
+        cardImageView.image = cards.randomElement()
     }
 }

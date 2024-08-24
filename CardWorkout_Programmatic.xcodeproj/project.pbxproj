@@ -14,6 +14,7 @@
 		3AE1AA6C2C7A32940083222A /* CardSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AA6B2C7A32940083222A /* CardSelectionVC.swift */; };
 		3AE1AA6E2C7A352D0083222A /* CWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AA6D2C7A352D0083222A /* CWButton.swift */; };
 		3AE1AA702C7A50F80083222A /* RulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AA6F2C7A50F80083222A /* RulesVC.swift */; };
+		3AE1AA722C7A8EC30083222A /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AA712C7A8EC30083222A /* CardDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3AE1AA6B2C7A32940083222A /* CardSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectionVC.swift; sourceTree = "<group>"; };
 		3AE1AA6D2C7A352D0083222A /* CWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWButton.swift; sourceTree = "<group>"; };
 		3AE1AA6F2C7A50F80083222A /* RulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesVC.swift; sourceTree = "<group>"; };
+		3AE1AA712C7A8EC30083222A /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3AE1AA6D2C7A352D0083222A /* CWButton.swift */,
 				3AE1AA6F2C7A50F80083222A /* RulesVC.swift */,
 				3AE1AA6B2C7A32940083222A /* CardSelectionVC.swift */,
+				3AE1AA712C7A8EC30083222A /* CardDeck.swift */,
 				3AE1AA592C7A2AAF0083222A /* SceneDelegate.swift */,
 				3AE1AA602C7A2AB20083222A /* Assets.xcassets */,
 				3AE1AA622C7A2AB20083222A /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE1AA582C7A2AAF0083222A /* AppDelegate.swift in Sources */,
+				3AE1AA722C7A8EC30083222A /* CardDeck.swift in Sources */,
 				3AE1AA702C7A50F80083222A /* RulesVC.swift in Sources */,
 				3AE1AA5A2C7A2AAF0083222A /* SceneDelegate.swift in Sources */,
 				3AE1AA6C2C7A32940083222A /* CardSelectionVC.swift in Sources */,
