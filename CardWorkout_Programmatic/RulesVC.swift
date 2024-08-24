@@ -9,46 +9,71 @@ import UIKit
 
 class RulesVC: UIViewController {
     
-    let rulesTitleLabel = UILabel()
-    let rulesDescriptionLabel = UILabel()
+    let titleLabel = UILabel()
+    let rulesDesriptionLabel = UILabel()
     let activityInfoLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        configureRulesTileLabel()
+        configureTileLabel()
         configureRulesDesriptionLabel()
+        configureactivityInfoLabel()
 
         
     }
-    func configureRulesTileLabel() {
-        view.addSubview(rulesTitleLabel)
-        rulesTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        rulesTitleLabel.text = "Rules"
-        rulesTitleLabel.font = .systemFont(ofSize: 40, weight: .bold)
-        rulesTitleLabel.textAlignment = .center
+    func configureTileLabel() {
+        view.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text = "Rules"
+        titleLabel.font = .systemFont(ofSize: 40, weight: .bold)
+        titleLabel.textAlignment = .center
         
         NSLayoutConstraint.activate([
-            rulesTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
-            rulesTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            rulesTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
     }
     
     func configureRulesDesriptionLabel() {
-        view.addSubview(rulesDescriptionLabel)
-       rulesDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-       rulesDescriptionLabel.text = "The value of each card represents the value of excercise you do.\n\n J = 11, K = 12, Q = 13, A = 14"
-        rulesDescriptionLabel.font = .systemFont(ofSize: 25, weight: .semibold)
-        rulesDescriptionLabel.textColor = .red
-        rulesDescriptionLabel.textAlignment = .center
-        rulesDescriptionLabel.lineBreakMode = .byWordWrapping
-        rulesDescriptionLabel.numberOfLines = 0
+        view.addSubview(rulesDesriptionLabel)
+        rulesDesriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        rulesDesriptionLabel.text = """
+                Value of card is
+                excercise value
+                
+                J = 11 K = 12
+                Q = 13 A = 14
+                
+                """
+        rulesDesriptionLabel.font = .systemFont(ofSize: 22, weight: .semibold)
+        rulesDesriptionLabel.textAlignment = .center
+        rulesDesriptionLabel.numberOfLines = 0
         
         NSLayoutConstraint.activate([
-            rulesDescriptionLabel.topAnchor.constraint(equalTo: rulesTitleLabel.bottomAnchor, constant: 20),
-            rulesDescriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            rulesDescriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+            rulesDesriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25),
+            rulesDesriptionLabel.widthAnchor.constraint(equalToConstant: 200),
+            rulesDesriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    func configureactivityInfoLabel() {
+        view.addSubview(activityInfoLabel)
+        activityInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+        activityInfoLabel.text = """
+        ♠️ = Push-ups
+        ♥️ = Sit-ups
+        ♣️ = Burpees
+        ♦️ = Jumping Jacks
+        """
+        activityInfoLabel.font = .systemFont(ofSize: 25, weight: .medium)
+                activityInfoLabel.numberOfLines = 0
+        
+        NSLayoutConstraint.activate([
+            activityInfoLabel.topAnchor.constraint(equalTo: rulesDesriptionLabel.bottomAnchor, constant: 35),
+                    activityInfoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+                    activityInfoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
     }
 }
