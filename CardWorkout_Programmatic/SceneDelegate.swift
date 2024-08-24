@@ -3,7 +3,7 @@
 //  CardWorkout_Programmatic
 //
 //  Created by Zakee Tanksley on 8/24/24.
-//
+// SceneDelegate: allows 2 instances of application
 
 import UIKit
 
@@ -16,7 +16,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+/*
+ * window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+ * is typically used in iOS applications to create and configure the main window for your app.
+ * window = UIWindow(...): Creates a new instance of UIWindow and assigns it to the window property of your SceneDelegate or AppDelegate.
+ * The UIWindow object represents the backdrop for your app's user interface and manages the app’s views.
+ * frame: windowScene.coordinateSpace.bounds:
+ * Frame is the rectangle that defines the window's size and position.
+ * windowScene.coordinateSpace.bounds retrieves the bounds of the screen area provided by the windowScene.
+ */
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        // Assigning a view controller to this property
+        window?.rootViewController = CardSelectionVC()
+        window?.makeKeyAndVisible() //show current window,position it in front of all other windows view.
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
