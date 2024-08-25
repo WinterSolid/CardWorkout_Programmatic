@@ -14,7 +14,7 @@ class CardSelectionVC: UIViewController {
     let rulesButton = CWButton(backgroundColor: .systemOrange, labelTitle: "Rules")
     var cards = CardDeck.gameImageValues
     var timer: Timer!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -47,6 +47,7 @@ class CardSelectionVC: UIViewController {
     
     func configureStopButton() {
         view.addSubview(stopButton)
+        stopButton.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             stopButton.widthAnchor.constraint(equalToConstant: 260),
@@ -58,6 +59,7 @@ class CardSelectionVC: UIViewController {
     
     func configureResetButton() {
         view.addSubview(resetButton)
+        resetButton.addTarget(self, action: #selector(resetTimer), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             resetButton.widthAnchor.constraint(equalToConstant: 115),
@@ -74,16 +76,12 @@ class CardSelectionVC: UIViewController {
         rulesButton.addTarget(self, action: #selector(presentRulesVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-           rulesButton.widthAnchor.constraint(equalToConstant: 115),
-           rulesButton.heightAnchor.constraint(equalToConstant: 50),
-           rulesButton.trailingAnchor.constraint(equalTo: stopButton.trailingAnchor),
-           rulesButton.topAnchor.constraint(equalTo: stopButton.bottomAnchor,constant: 20)
+            rulesButton.widthAnchor.constraint(equalToConstant: 115),
+            rulesButton.heightAnchor.constraint(equalToConstant: 50),
+            rulesButton.trailingAnchor.constraint(equalTo: stopButton.trailingAnchor),
+            rulesButton.topAnchor.constraint(equalTo: stopButton.bottomAnchor,constant: 20)
             
         ])
-    }
-    
-    @objc func presentRulesVC(){
-        present(RulesVC(), animated: true)
     }
     
     func startTimer() {
@@ -92,5 +90,18 @@ class CardSelectionVC: UIViewController {
     
     @objc func showRandomCard() {
         cardImageView.image = cards.randomElement()
+    }
+    
+    @objc func stopTimer() {
+        timer.invalidate()
+    }
+    
+    @objc func resetTimer(){
+        stopTimer()
+        startTimer()
+    }
+    
+    @objc func presentRulesVC(){
+        present(RulesVC(), animated: true)
     }
 }
