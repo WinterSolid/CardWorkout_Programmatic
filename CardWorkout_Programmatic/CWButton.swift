@@ -27,7 +27,5 @@ class CWButton: UIButton {
         configuration?.cornerStyle = .medium
         
         translatesAutoresizingMaskIntoConstraints = false
-        
     }
 }
-    
